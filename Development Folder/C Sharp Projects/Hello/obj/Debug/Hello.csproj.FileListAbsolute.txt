@@ -1,0 +1,7 @@
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\Hello\bin\Debug\Hello.exe.config
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\Hello\bin\Debug\Hello.exe
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\Hello\bin\Debug\Hello.pdb
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\Hello\obj\Debug\Hello.csproj.AssemblyReference.cache
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\Hello\obj\Debug\Hello.csproj.CoreCompileInputs.cache
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\Hello\obj\Debug\Hello.exe
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\Hello\obj\Debug\Hello.pdb

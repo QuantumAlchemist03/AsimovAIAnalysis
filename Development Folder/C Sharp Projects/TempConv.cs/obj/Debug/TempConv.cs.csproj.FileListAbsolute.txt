@@ -1,0 +1,7 @@
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\TempConv.cs\bin\Debug\TempConv.cs.exe.config
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\TempConv.cs\bin\Debug\TempConv.cs.exe
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\TempConv.cs\bin\Debug\TempConv.cs.pdb
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\TempConv.cs\obj\Debug\TempConv.cs.csproj.AssemblyReference.cache
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\TempConv.cs\obj\Debug\TempConv.cs.csproj.CoreCompileInputs.cache
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\TempConv.cs\obj\Debug\TempConv.cs.exe
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\TempConv.cs\obj\Debug\TempConv.cs.pdb

@@ -1,0 +1,7 @@
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\CircleMeasurements.cs\bin\Debug\CircleMeasurements.cs.exe.config
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\CircleMeasurements.cs\bin\Debug\CircleMeasurements.cs.exe
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\CircleMeasurements.cs\bin\Debug\CircleMeasurements.cs.pdb
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\CircleMeasurements.cs\obj\Debug\CircleMeasurements.cs.csproj.AssemblyReference.cache
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\CircleMeasurements.cs\obj\Debug\CircleMeasurements.cs.csproj.CoreCompileInputs.cache
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\CircleMeasurements.cs\obj\Debug\CircleMeasurements.cs.exe
+C:\Users\ALIF\Documents\Development Folder\C Sharp Projects\CircleMeasurements.cs\obj\Debug\CircleMeasurements.cs.pdb
