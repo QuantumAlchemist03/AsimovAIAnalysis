@@ -1,0 +1,13 @@
+Copyright © Alif Sathar, 2025
+
+All Rights Reserved.
+
+This project was created solely for academic purposes as part of a university coursework submission.
+
+The source code, documentation, and any related files in this repository are strictly proprietary and are not licensed for public, private, educational, or commercial use.
+
+No permission is granted to copy, reproduce, distribute, modify, display, or use this project in any form, including for educational, research, personal, or commercial purposes.
+
+Any unauthorized use of this code or its contents is strictly prohibited and may result in legal action.
+
+For permissions or inquiries, please contact the author directly.
