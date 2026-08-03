@@ -9,7 +9,7 @@ class TextAnalyser
         int count = 0;
         foreach (char c in input)
         {
-            if (char.IsControl(c))
+            if (!char.IsControl(c))
                 count++;
         }
         return count;
@@ -68,10 +68,10 @@ class TextAnalyser
         {
             string input = File.ReadAllText(path);
             Console.WriteLine("Analysis of the text:");
-            Console.WriteLine("Number of printable characters: {CountPrintableCharacters(input)}");
-            Console.WriteLine("Number of whitespace characters: {CountWhitespaceCharacters(input)}");
-            Console.WriteLine("Number of vowels: {CountVowels(input)}");
-            Console.WriteLine("Number of consonants: {CountConsonants(input)}");
+            Console.WriteLine($"Number of printable characters: {CountPrintableCharacters(input)}");
+            Console.WriteLine($"Number of whitespace characters: {CountWhitespaceCharacters(input)}");
+            Console.WriteLine($"Number of vowels: {CountVowels(input)}");
+            Console.WriteLine($"Number of consonants: {CountConsonants(input)}");
 
             int[] vowelFrequencies = new int[5]; // a, e, i, o, u
             CountVowelFrequencies(input, vowelFrequencies);
