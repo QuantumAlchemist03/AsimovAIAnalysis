@@ -1,64 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FlyingRules
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-        }
-    }
-}
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace JourneyRules
 {
     class JourneyMode
     {
+        // Three-valued logic: a fact is either proven true, proven false,
+        // or not yet known. UNKNOWN is what lets the forward-chaining loop
+        // tell "not established yet" apart from "established as false".
+        public const int UNKNOWN = -1, FALSE = 0, TRUE = 1;
 
-        public static int av_speed, FALSE = 0, TRUE = 1;
+        public static int av_speed;
 
-        public static int like_scenery = FALSE, is_pilot = FALSE, fly = FALSE, drive = FALSE,
-            fly_airline = FALSE, fly_a_Cessna = FALSE, fly_a_Piper = FALSE, motorbike = FALSE, car = FALSE;
+        // Set by rules() whenever a rule fires; drives the chaining loop.
+        public static bool done;
 
+        public static int like_scenery = UNKNOWN, is_pilot = UNKNOWN, fly = UNKNOWN, drive = UNKNOWN,
+            fly_airline = UNKNOWN, fly_a_Cessna = UNKNOWN, fly_a_Piper = UNKNOWN, motorbike = UNKNOWN, car = UNKNOWN;
 
         static void Main(string[] args)
         {
             int distance, time;
 
-            string str;
-
             Console.WriteLine("This is a program to help with travel planning.");
-            Console.WriteLine("\nHow far are you going? (miles)");
-            str = Console.ReadLine();
-            distance = int.Parse(str);
 
-            Console.WriteLine("\nHow much time do you have for the trip? (hours):");
-            str = Console.ReadLine();
-            time = int.Parse(str);
+            distance = ReadPositiveInt("\nHow far are you going? (miles)");
+            time = ReadPositiveInt("\nHow much time do you have for the trip? (hours):");
 
             av_speed = distance / time;
             Console.WriteLine("Average speed is " + av_speed + "mph");
 
-            Console.WriteLine("\nDo you prefer scenery over speed? (Y/N)");
-            str = Console.ReadLine();
-            if (str.ToLower() == "y")
-                like_scenery = TRUE;
+            like_scenery = ReadYesNo("\nDo you prefer scenery over speed? (Y/N)");
+            is_pilot = ReadYesNo("\nAre you a pilot? (Y/N)");
 
-            Console.WriteLine("\nAre you a pilot? (Y/N)");
-            str = Console.ReadLine();
+            // Forward chaining: keep re-applying the rule set until a full
+            // pass fires nothing new and the fact base is stable.
+            do
+            {
+                done = true;
+                rules();
+            } while (!done);
 
-            if (str.ToLower() == "y")
-                is_pilot = TRUE;
-
-            rules();
+            // Default resolution: if flying is indicated but no specific
+            // aircraft was selected, fall back to a commercial airline.
+            if (fly == TRUE && fly_a_Cessna != TRUE && fly_a_Piper != TRUE)
+                fly_airline = TRUE;
 
             if (fly_airline == TRUE)
                 Console.WriteLine("\nFly using a commercial airline.\n");
@@ -77,7 +62,6 @@ namespace JourneyRules
 
             Console.WriteLine("Press any key to exit");
             Console.ReadKey();
-
         }
 
         public static void rules()
@@ -94,19 +78,13 @@ namespace JourneyRules
                 done = false;
             }
 
-            if (fly == TRUE && is_pilot == FALSE && fly_airline == UNKNOWN)
-            {
-                fly_airline = TRUE;
-                done = false;
-            }
-
-            if (fly == TRUE && is_pilot == TRUE && like_scenery == TRUE && av_speed < 100 && fly_a_Cessna = UNKNOWN)
+            if (fly == TRUE && is_pilot == TRUE && like_scenery == TRUE && av_speed < 100 && fly_a_Cessna == UNKNOWN)
             {
                 fly_a_Cessna = TRUE;
                 done = false;
             }
 
-            if (fly == TRUE && is_pilot == TRUE && 100 < av_speed && av_speed < 200 && fly_a_Piper == UNKNOWN)
+            if (fly == TRUE && is_pilot == TRUE && av_speed >= 100 && av_speed < 200 && fly_a_Piper == UNKNOWN)
             {
                 fly_a_Piper = TRUE;
                 done = false;
@@ -118,11 +96,44 @@ namespace JourneyRules
                 done = false;
             }
 
-            if (drive == TRUE && motorbike == FALSE && car == UNKNOWN)
+            if (drive == TRUE && like_scenery != TRUE && car == UNKNOWN)
             {
                 car = TRUE;
                 done = false;
             }
+        }
 
+        // Reads an integer strictly greater than zero, re-prompting on bad
+        // input. Guards the distance / time division.
+        private static int ReadPositiveInt(string prompt)
+        {
+            int value;
+            while (true)
+            {
+                Console.WriteLine(prompt);
+                if (int.TryParse(Console.ReadLine(), out value) && value > 0)
+                    return value;
+
+                Console.WriteLine("Please enter a whole number greater than zero.");
+            }
+        }
+
+        private static int ReadYesNo(string prompt)
+        {
+            while (true)
+            {
+                Console.WriteLine(prompt);
+                string answer = Console.ReadLine();
+
+                if (answer != null)
+                {
+                    answer = answer.Trim().ToLower();
+                    if (answer == "y" || answer == "yes") return TRUE;
+                    if (answer == "n" || answer == "no") return FALSE;
+                }
+
+                Console.WriteLine("Please answer Y or N.");
+            }
         }
     }
+}
